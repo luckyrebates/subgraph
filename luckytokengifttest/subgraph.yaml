@@ -1,0 +1,59 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: LuckyTokenGift
+    network: sepolia
+    source:
+      address: "0xFB5825D0d370eb8177CD244bf2B15ED851439091"
+      abi: LuckyTokenGift
+      startBlock: 5914767
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ClaimPrize
+        - DefaultAutoClaimChange
+        - DefaultTokenChange
+        - OperatorAddress
+        - OwnershipTransferred
+        - PrizeDrawn
+        - TicketsGet
+        - TicketsInject
+        - TicketsPurchase
+        - TokenGiftClaimable
+        - TokenGiftClosed
+        - TokenGiftCreated
+      abis:
+        - name: LuckyTokenGift
+          file: ./abis/LuckyTokenGift.json
+      eventHandlers:
+        - event: ClaimPrize(indexed uint256,indexed address,uint256,bool)
+          handler: handleClaimPrize
+        - event: DefaultAutoClaimChange(bool)
+          handler: handleDefaultAutoClaimChange
+        - event: DefaultTokenChange(address,uint256)
+          handler: handleDefaultTokenChange
+        - event: OperatorAddress(address,bool)
+          handler: handleOperatorAddress
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: PrizeDrawn(indexed uint256,indexed address,indexed uint256,uint256,bool)
+          handler: handlePrizeDrawn
+        - event: TicketsGet(indexed uint256,indexed address,indexed address,uint256,uint256)
+          handler: handleTicketsGet
+        - event: TicketsInject(indexed uint256,indexed address,uint256)
+          handler: handleTicketsInject
+        - event: TicketsPurchase(indexed uint256,indexed address,indexed address,uint256,uint256)
+          handler: handleTicketsPurchase
+        - event: TokenGiftClaimable(indexed uint256,uint256)
+          handler: handleTokenGiftClaimable
+        - event: TokenGiftClosed(indexed uint256,uint256,uint256,uint256,uint256)
+          handler: handleTokenGiftClosed
+        - event: TokenGiftCreated(indexed uint256,uint16,uint256,uint256,uint256,uint256,address,address,bool)
+          handler: handleTokenGiftCreated
+      file: ./src/lucky-token-gift.ts

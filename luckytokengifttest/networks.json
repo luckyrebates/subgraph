@@ -1,0 +1,8 @@
+{
+  "sepolia": {
+    "LuckyTokenGift": {
+      "address": "0xFB5825D0d370eb8177CD244bf2B15ED851439091",
+      "startBlock": 5914767
+    }
+  }
+}
