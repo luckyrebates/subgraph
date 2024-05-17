@@ -8,9 +8,9 @@ dataSources:
     name: LuckyTokenGift
     network: sepolia
     source:
-      address: "0xFB5825D0d370eb8177CD244bf2B15ED851439091"
+      address: "0xb3595976e665e01cf48a422eB8a33066eAF83503"
       abi: LuckyTokenGift
-      startBlock: 5914767
+      startBlock: 5923147
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -50,10 +50,10 @@ dataSources:
           handler: handleTicketsInject
         - event: TicketsPurchase(indexed uint256,indexed address,indexed address,uint256,uint256)
           handler: handleTicketsPurchase
-        - event: TokenGiftClaimable(indexed uint256,uint256)
+        - event: TokenGiftClaimable(indexed uint256,uint256,uint256,uint256,uint256)
           handler: handleTokenGiftClaimable
         - event: TokenGiftClosed(indexed uint256,uint256,uint256,uint256,uint256)
           handler: handleTokenGiftClosed
-        - event: TokenGiftCreated(indexed uint256,uint16,uint256,uint256,uint256,uint256,address,address,bool)
+        - event: TokenGiftCreated(indexed uint256,uint16,uint256,uint256,uint256,uint256,address,address,bool,uint256)
           handler: handleTokenGiftCreated
       file: ./src/lucky-token-gift.ts
