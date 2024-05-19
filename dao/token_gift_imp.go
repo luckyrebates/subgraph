@@ -12,7 +12,7 @@ import (
 var client *graphql.Client
 
 func init() {
-	client = graphql.NewClient(" https://api.studio.thegraph.com/query/70193/luckytokengifttest/version/latest")
+	client = graphql.NewClient("https://api.studio.thegraph.com/query/70193/luckytokengifttest/version/latest")
 
 }
 
@@ -31,7 +31,7 @@ func GetTokenGiftList(first int, model int, status int) string {
 	}
 	whereStr := strings.Join(whereList, ",")
 	query := string(`query ($firstkey: Int!,$modelkey: Int!,$statuskey: Int!) { 
-        redEnvelopes (first:$firstkey,orderBy:id,orderDirection :desc,where:{` + whereStr + `}){
+        tokenGifts (first:$firstkey,orderBy:id,orderDirection :desc,where:{` + whereStr + `}){
             id
             ticketToken
             ticketPirce
@@ -137,7 +137,7 @@ func GetTokenGift(id string) string {
                 ticketNumbers
                 transactionHash
             }
-            TicketsGetList{
+            ticketsGetList{
                 sender
                 receiveAddress
                 ticketNumbers
@@ -195,7 +195,7 @@ func GetUserInfo(addr string) string {
                 ticketNumbers
                 transactionHash
             }
-            TicketsGetList{
+            ticketsGetList{
                 tokenGift{
                     id
                 }
@@ -257,7 +257,7 @@ func GetUserInfoWithTokenGiftId(addr string, id string) string {
                 transactionHash
                 blockTimestamp
             }
-            TicketsGetList(orderBy:blockTimestamp,orderDirection :asc,where:{tokenGift:$id}){
+            ticketsGetList(orderBy:blockTimestamp,orderDirection :asc,where:{tokenGift:$id}){
                 sender
                 receiveAddress
                 ticketNumbers

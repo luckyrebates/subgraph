@@ -130,7 +130,7 @@ type TokenGiftClosed @entity(immutable: true) {
 
 type TokenGiftCreated @entity(immutable: true) {
   id: String! 
-  model:Int8! #0:buyTicket model 1:sendTicket model 
+  model:Int8! #1:buyTicket model 2:sendTicket model 
   startTime: BigInt! # uint256
   endTime: BigInt! # uint256
   maxTickets: BigInt! # uint256

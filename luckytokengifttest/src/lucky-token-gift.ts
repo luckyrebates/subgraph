@@ -304,6 +304,7 @@ export function handleTokenGiftCreated(event: TokenGiftCreatedEvent): void {
   let entity = new TokenGiftCreated(
     id
   )
+  entity.model = event.params.model
   entity.startTime = event.block.timestamp
   entity.endTime = event.params.endTime
   entity.maxTickets = event.params.maxTickets
