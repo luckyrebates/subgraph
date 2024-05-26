@@ -12,8 +12,8 @@ import (
 var client *graphql.Client
 
 func init() {
+	//client = graphql.NewClient("https://api.studio.thegraph.com/query/70193/luckytokengifttest/v0.0.5")
 	client = graphql.NewClient("https://api.studio.thegraph.com/query/70193/luckytokengifttest/version/latest")
-
 }
 
 // 查询最新的n个红包

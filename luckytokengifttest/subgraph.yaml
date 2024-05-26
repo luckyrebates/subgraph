@@ -8,9 +8,9 @@ dataSources:
     name: LuckyTokenGift
     network: sepolia
     source:
-      address: "0xb3595976e665e01cf48a422eB8a33066eAF83503"
+      address: "0x3C7A01BF4161Be82d5f3d626B856D28c2DeA86dD"
       abi: LuckyTokenGift
-      startBlock: 5923147
+      startBlock: 5960441
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7

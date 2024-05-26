@@ -255,7 +255,7 @@ export function handleTokenGiftClaimable(event: TokenGiftClaimableEvent): void {
 
 export function handleTokenGiftClosed(event: TokenGiftClosedEvent): void {
   let id = event.params.id.toString()
-  let entity = new TokenGiftClaimable(
+  let entity = new TokenGiftClosed(
     id
   )
 
